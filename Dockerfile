@@ -3,17 +3,17 @@ MAINTAINER richardspop@gmail.com
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p /root/receiver-logger
+RUN mkdir -p /root/receiver_logger
 
-COPY receiver-logger /root/receiver-logger/receiver-logger
+COPY receiver_logger /root/receiver_logger/receiver_logger
 
-WORKDIR /root/receiver-logger
+WORKDIR /root/receiver_logger
 
-COPY install-dependencies.sh /root/receiver-logger/install-dependencies.sh
-RUN /root/receiver-logger/install-dependencies.sh
+COPY install-dependencies.sh /root/receiver_logger/install-dependencies.sh
+RUN /root/receiver_logger/install-dependencies.sh
 
 ARG FILE_PATH
 
 ENV FILE_PATH=$FILE_PATH
 
-ENTRYPOINT /root/receiver-logger/receiver-logger -f $FILE_PATH
+ENTRYPOINT /root/receiver_logger/receiver_logger -f $FILE_PATH
