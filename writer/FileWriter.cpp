@@ -11,6 +11,7 @@ FileWriter::FileWriter(std::string path) {
 }
 
 void FileWriter::StatsWrite(std::string statsJson) {
+    // Write the given string to the file
     std::ofstream logFile;
     logFile.open(filePath, std::ios::app | std::ios::out);
     if (logFile.is_open()) {

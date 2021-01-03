@@ -9,6 +9,7 @@ WriterFactoryImpl::WriterFactoryImpl() {
 }
 
 WriterFactoryImpl * WriterFactoryImpl::GetWriterFactoryInstace() {
+    // Singleton instance to control the creation of writer objects
     if (!instance)
         instance = new WriterFactoryImpl();
     std::cout << "WriterFactoryImpl instance returned" << std::endl;

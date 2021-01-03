@@ -10,6 +10,7 @@
 #include "cxxopts/cxxopts.hpp"
 
 class Config {
+    // default options for cli arguments
     std::string progName = "receiver-logger";
     std::string progDesc = "Microservice for getting the stats and logging";
     std::string fileOptDesc = "logger file path";

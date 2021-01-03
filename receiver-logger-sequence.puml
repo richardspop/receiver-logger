@@ -1,0 +1,27 @@
+@startuml
+
+Main -> Config: new Config()
+Main -> Config: parseConfigFile(argc, argv)
+Config -> Main: path
+
+Main -> WriterFactoryImpl: GetWriterFactoryInstace()
+WriterFactoryImpl --> Main: WriterFactoryImpl *Instance
+Main -> WriterFactoryImpl: CreateWriter("file", path)
+WriterFactoryImpl -> FileWriter: new FileWriter(path)
+WriterFactoryImpl --> Main: WriterFactory *Instance
+
+Main -> ClientFactoryImpl: GetClientFactoryInstance()
+ClientFactoryImpl --> Main: ClientFactoryImpl *Instance
+Main -> ClientFactoryImpl: CreateClient("zmq")
+ClientFactoryImpl -> ZMQClient: new ZMQClient()
+ClientFactoryImpl --> Main: ClientFactory *Instance
+
+Main -> ZMQClient: Request("tcp://localhost:5555", 2, WriterFactory *Instance)
+    loop
+        ZMQClient -> StatsCollector: ZMQ Request
+        StatsCollector --> ZMQClient: ZMQ Reply
+        ZMQClient -> FileWriter: StatsWrite(zmq reply)
+        ZMQClient -> ZMQClient: sleep(2)
+    end
+
+@enduml

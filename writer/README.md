@@ -18,4 +18,7 @@ FileWriter logs the given string into a local file.
 The path for logging the message is passed in with constructor.
 
 ### Class Design
-![Class disgram](receiver_logger_writer-class.png?raw=true "Title")
+![Class Diagram](receiver_logger_writer-class.png?raw=true "Title")
+
+### Sequence Diagram
+![Sequence Diagram](receiver_logger_writer_sequence.png?raw=true "Title")

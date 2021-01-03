@@ -11,6 +11,7 @@ std::string Config::parseConfigFile(int argc, char **argv) {
     std::cout << "Parsing CLI config" << std::endl;
     std::string filePath;
     try {
+        // Parsing CLI options
         cxxopts::Options options(progName, progDesc);
         options.add_options()
                 (fileOpt, fileOptDesc, cxxopts::value<std::string>()->default_value(fileOptDefault));

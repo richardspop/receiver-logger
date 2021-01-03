@@ -1,0 +1,15 @@
+@startuml
+Main -> ClientFactoryImpl: GetClientFactoryInstance()
+ClientFactoryImpl --> Main: ClientFactoryImpl *Instance
+Main -> ClientFactoryImpl: CreateClient(clientType)
+alt ZMQ client
+ClientFactoryImpl -> ZMQClient: new ZMQClient()
+else HTTP Client
+ClientFactoryImpl -> HTTPClient: new HTTPClient()
+else GRPC Client
+ClientFactoryImpl -> GRPCClient: new GRPCClient()
+end
+
+ClientFactoryImpl --> Main: ClientFactory *Instance
+
+@enduml

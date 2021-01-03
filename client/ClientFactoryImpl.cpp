@@ -9,6 +9,7 @@ ClientFactoryImpl::ClientFactoryImpl() {
 }
 
 ClientFactoryImpl * ClientFactoryImpl::GetClientFactoryInstance() {
+    // Singleton instance to control the client creation.
     if (!instance)
         instance = new ClientFactoryImpl();
     std::cout << "ClientFactoryImpl instance returned" << std::endl;

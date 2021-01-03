@@ -1,0 +1,17 @@
+@startuml
+
+interface ClientFactory {
+    Request(string serverAddress, int statCollectionTimer, WriterFactory * writer)
+}
+class ClientFactoryImpl {
+    GetClientFactoryInstance()
+    CreateClient(string clientType)
+}
+class ZMQClient {
+    ZMQClient()
+    Request(string serverAddress, int statCollectionTimer, WriterFactory * writer)
+}
+
+ClientFactory <|-- ZMQClient
+
+@enduml
