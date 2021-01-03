@@ -18,4 +18,4 @@ FileWriter logs the given string into a local file.
 The path for logging the message is passed in with constructor.
 
 ### Class Design
-![Class disgram]("writer/receiver_logger_writer-class.png")
+![Class disgram]("https://github.com/richardspop/receiver-logger/tree/main/writer/receiver_logger_writer-class.png")
