@@ -1,0 +1,17 @@
+@startuml
+
+interface WriterFactory {
+    StatsWrite(string statsJson)
+}
+class WriterFactoryImpl {
+GetWriterFactoryInstace()
+    CreateWriter(string writerType, string path)
+}
+class FileWriter {
+    - string filePath
+    StatsWrite(string statsJson)
+}
+
+WriterFactory <|-- FileWriter
+
+@enduml

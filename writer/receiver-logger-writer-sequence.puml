@@ -1,0 +1,19 @@
+@startuml
+Main -> WriterFactoryImpl: GetWriterFactoryInstace()
+WriterFactoryImpl --> Main: WriterFactoryImpl *Instance
+Main -> WriterFactoryImpl: CreateWriter(writerType, path)
+alt Write to local file
+WriterFactoryImpl -> FileWriter: new FileWriter(path)
+else Write to S3
+WriterFactoryImpl -> S3Writer: new S3Writer(path)
+else Write to EBS/EFS/NFS
+WriterFactoryImpl -> EBSWriter: new EBSWriter(path)
+else Write to Fluentd
+WriterFactoryImpl -> FluentdWriter: new FluentdWriter(path)
+else Write to Logstash
+WriterFactoryImpl -> LogstashWriter: new LogstashWriter(path)
+end
+
+WriterFactoryImpl --> Main: WriterFactory *Instance
+
+@enduml
